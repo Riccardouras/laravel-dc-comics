@@ -1,16 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Comics</h1>
+<h1>Comic</h1>
 
-<a href="{{ route('comics.create') }}">Create a New Comic</a>
-    @foreach($comics as $comic)
-    <ul>
-        <li>
-            <a href="{{route("comics.show", $comic->id)}}">{{$comic->title}}</a>
-        </li>
-    </ul>
-    @endforeach
 <table>
     <thead>
         <tr>
@@ -19,7 +11,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($comics as $comic)
         <tr>
             <td>{{ $comic->title }}</td>
             <td>{{ $comic->description }}</td>
@@ -27,9 +18,9 @@
             <td>{{ $comic->price }}</td>
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->sale_date }}</td>
-            <td>{{ $comic->type }}</td>
+            <td>{{ $comic->type }}</td>  
         </tr>
-        @endforeach
+       
     </tbody>
 </table>
 @endsection
