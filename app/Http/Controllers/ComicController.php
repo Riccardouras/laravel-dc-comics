@@ -70,9 +70,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comics $comic)
     {
-        //
+            return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -82,10 +82,21 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    public function update(Request $request, Comics $comic)
+{
+    $comic->title = $request->input('title');
+    $comic->description = $request->input('description');
+    $comic->thumb = $request->input('thumb');
+    $comic->price = $request->input('price');
+    $comic->series = $request->input('series');
+    $comic->sale_date = $request->input('sale_date');
+    $comic->type = $request->input('type');
+    $comic->artists = $request->input('artists');
+    $comic->writers = $request->input('writer');
+
+    $comic->save();
+    return redirect()->route('comics.show', $comic->id);
+}
 
     /**
      * Remove the specified resource from storage.
@@ -93,8 +104,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comics $comic)
     {
-        //
+        $comic->delete();
+    
+        return redirect()->route('comics.index')->with('success', 'Fumetto eliminato con successo.');
     }
 }

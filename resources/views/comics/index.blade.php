@@ -4,10 +4,11 @@
 <h1>Comics</h1>
 
 <a href="{{ route('comics.create') }}">Create a New Comic</a>
+<a href="{{ route('comics.create') }}">Modify data</a>
     @foreach($comics as $comic)
     <ul>
         <li>
-            <a href="{{route("comics.show", $comic->id)}}">{{$comic->title}}</a>
+            <a href="{{route("comics.show", $comic->id)}}">{{$comic->title}}</a> <button id="deleteButton" onclick="confirmDelete()">Delete</button>
         </li>
     </ul>
     @endforeach
