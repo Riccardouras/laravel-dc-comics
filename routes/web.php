@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +23,4 @@ Route::get('/otherpage', function () {
     $links = config('store.someLinks');
     return view('other', compact('links'));
 });
+Route::resource('comics', ComicController::class);

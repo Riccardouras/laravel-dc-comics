@@ -4,4 +4,6 @@
     @foreach ($links as $link)
         <a href="{{ $link['href'] }}">{{ $link['text'] }}</a>
     @endforeach
+    <a href="{{ route('comics.create') }}">Comics</a>
+
 </header>
