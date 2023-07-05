@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Comics;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -34,7 +34,31 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'thumb' => 'required|url',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required|date',
+            'type' => 'required',
+            'artists' => 'required|array',
+            'writers' => 'required|array',
+        ]);
+    
+        $comic = new Comics();
+        $comic->title = $validatedData['title'];
+        $comic->description = $validatedData['description'];
+        $comic->thumb = $validatedData['thumb'];
+        $comic->price = $validatedData['price'];
+        $comic->series = $validatedData['series'];
+        $comic->sale_date = $validatedData['sale_date'];
+        $comic->type = $validatedData['type'];
+        $comic->artists = $validatedData['artists'];
+        $comic->writers = $validatedData['writers'];
+        $comic->save();
+    
+        return redirect()->route('comics.index')->with('success', 'Comic saved successfully!');
     }
 
     /**
