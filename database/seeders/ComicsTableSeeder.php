@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use app\Models\Comics;
+use App\Models\Comics;
 class ComicsTableSeeder extends Seeder
 {
     /**
@@ -21,12 +21,12 @@ class ComicsTableSeeder extends Seeder
         $newComic->title = $comic["title"];
         $newComic->description = $comic["description"];
         $newComic->thumb = $comic["thumb"];
-        $newComic->price = $comic["price"];
+        $newComic->price = floatval(str_replace('$', '', $comic['price']));
         $newComic->series = $comic["series"];
         $newComic->sale_date = $comic["sale_date"];
         $newComic->type = $comic["type"];
-        $newComic->artists = $comic["artists"];
-        $newComic->writers = $comic["writers"];
+        $newComic->artists = $comic['artists'];
+        $newComic->writers = $comic['writers'];
         $newComic->save();
     
        }

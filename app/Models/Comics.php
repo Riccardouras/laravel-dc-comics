@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Comics extends Model
 {
     use HasFactory;
+    protected $casts = [
+        'artists' => 'array',
+        'writers' => 'array',
+    ];
 }

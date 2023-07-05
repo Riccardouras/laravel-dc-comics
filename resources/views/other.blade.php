@@ -7,6 +7,7 @@
         <div class="col">
             <div>
                 <p>This is another page, with a different content for sure</p>
+                <a href="{{ route('comics.index') }}">Index</a>
             </div>
         </div>
     </div>

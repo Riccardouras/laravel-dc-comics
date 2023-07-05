@@ -1,9 +1,6 @@
 <header class="p-3">
     <img class="logo" src="{{ Vite::asset('resources/img/logo.png') }}" alt="Laravel Logo">
     <span>Some links: </span>
-    @foreach ($links as $link)
-        <a href="{{ $link['href'] }}">{{ $link['text'] }}</a>
-    @endforeach
     <a href="{{ route('comics.create') }}">Comics</a>
-
+    <a href="{{ route('comics.index') }}">index</a>
 </header>

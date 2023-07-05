@@ -28,5 +28,5 @@
     <input type="text" name="writers" id="writers" required>
     <br>
 
-    <button type="submit">Save</button>
+    <button type="submit">Save <a href="{{ route('comics.index') }}"></a></button>
 </form>
