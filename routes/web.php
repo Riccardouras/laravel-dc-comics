@@ -24,3 +24,7 @@ Route::get('/otherpage', function () {
     return view('other', compact('links'));
 });
 Route::resource('comics', ComicController::class);
+
+Route::get('/', function () {
+    return view('layouts.app');
+})->name('homepage');

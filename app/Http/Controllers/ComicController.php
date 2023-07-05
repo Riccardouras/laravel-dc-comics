@@ -35,31 +35,21 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'thumb' => 'required|url',
-            'price' => 'required',
-            'series' => 'required',
-            'sale_date' => 'required|date',
-            'type' => 'required',
-            'artists' => 'required|array',
-            'writers' => 'required|array',
-        ]);
+        $validatedData = $request->all();
     
-        $comic = new Comics();
-        $comic->title = $validatedData['title'];
-        $comic->description = $validatedData['description'];
-        $comic->thumb = $validatedData['thumb'];
-        $comic->price = $validatedData['price'];
-        $comic->series = $validatedData['series'];
-        $comic->sale_date = $validatedData['sale_date'];
-        $comic->type = $validatedData['type'];
-        $comic->artists = $validatedData['artists'];
-        $comic->writers = $validatedData['writers'];
-        $comic->save();
+        $newComic = new Comics();
+        $newComic->title = $validatedData['title'];
+        $newComic->description = $validatedData['description'];
+        $newComic->thumb = $validatedData['thumb'];
+        $newComic->price = $validatedData['price'];
+        $newComic->series = $validatedData['series'];
+        $newComic->sale_date = $validatedData['sale_date'];
+        $newComic->type = $validatedData['type'];
+        $newComic->artists = $validatedData['artists'];
+        $newComic->writers = $validatedData['writers'];
+        $newComic->save();
     
-        return redirect()->route('comics.index')->with('success', 'Comic saved successfully!');
+        return redirect()->route('comics.show',$newComic->id)->with('success', 'Comic saved successfully!');
     }
 
     /**

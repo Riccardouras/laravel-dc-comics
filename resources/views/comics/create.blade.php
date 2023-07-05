@@ -6,6 +6,9 @@
     <label for="description">Description:</label>
     <textarea name="description" id="description" required></textarea>
     <br>
+    <label for="thumb">Thumbnail:</label>
+    <input type="text" name="thumb" id="thumb" required>
+    <br>
     <label for="price">Price:</label>
     <input type="text" name="price" id="price" required>
     <br>
