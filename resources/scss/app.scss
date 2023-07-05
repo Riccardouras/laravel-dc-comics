@@ -1,0 +1,50 @@
+/* importo bootstrap dalla cartella node_modules usando l'alias settato in vite.config.js */
+@import "~bootstrap/scss/bootstrap";
+@import "~resources/scss/partials/_variables.scss";
+@import "~resources/scss/partials/_mixins.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: #222;
+    color: white;
+}
+
+header,
+footer {
+    width: 100%;
+    background: $main_color;
+    color: white;
+}
+
+header img.logo {
+    height: 2rem;
+}
+
+header a {
+    color: white;
+    text-decoration: none !important;
+}
+
+/*********** COMICS STYLE ***********/
+img.comicCover {
+    width: 4em;
+
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-color: $main_color;
+    background-image: url('../img/jumbotron.jpg');
+    background-position: center top;
+    background-size: cover;
+    padding: 200px 0;
+}
