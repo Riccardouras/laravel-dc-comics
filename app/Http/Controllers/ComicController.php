@@ -91,8 +91,6 @@ class ComicController extends Controller
     $comic->series = $request->input('series');
     $comic->sale_date = $request->input('sale_date');
     $comic->type = $request->input('type');
-    $comic->artists = $request->input('artists');
-    $comic->writers = $request->input('writer');
 
     $comic->save();
     return redirect()->route('comics.show', $comic->id);

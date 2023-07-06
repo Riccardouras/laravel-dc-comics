@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Comic</h1>
-
+<a href="{{ route('comics.edit', $comic->id)}}">Modify data</a>
 <table>
     <thead>
         <tr>

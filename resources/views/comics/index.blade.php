@@ -4,7 +4,6 @@
 <h1>Comics</h1>
 
 <a href="{{ route('comics.create') }}">Create a New Comic</a>
-<a href="{{ route('comics.create') }}">Modify data</a>
     @foreach($comics as $comic)
     <ul>
         <li>
