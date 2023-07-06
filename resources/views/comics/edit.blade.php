@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <h1>Modifica fumetto</h1>
 
 <form action="{{ route('comics.update', $comic->id ) }}" method="post">
@@ -31,3 +33,4 @@
 
     <input class="form-control mt-4 btn btn-primary" type="submit" value="Invia">
  </form>
+ @endsection
