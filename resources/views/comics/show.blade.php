@@ -2,14 +2,9 @@
 
 @section('content')
 <h1>Comic</h1>
-<a href="{{ route('comics.edit', $comic->id)}}">Modify data</a>
 <div class="row g-4">
     <div class="col">
-        <form action="{{ route('comics.destroy', $comic) }}" method="post">
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit" value="Cancella il fumetto">
-        </form>
+        
     </div>
 </div>
 <table>
@@ -27,7 +22,13 @@
             <td>{{ $comic->price }}</td>
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->sale_date }}</td>
-            <td>{{ $comic->type }}</td>  
+            <td>{{ $comic->type }}</td> 
+            <td> <form action="{{ route('comics.destroy', $comic) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <input class="btn btn-danger" type="submit" value="Delete">
+            </form></td> 
+            <td><button class="btn btn-warning"><a href="{{ route('comics.edit', $comic->id)}}">Edit</a></button></td>
         </tr>
        
     </tbody>
