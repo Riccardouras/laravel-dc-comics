@@ -2,5 +2,5 @@
     <img class="logo" src="{{ Vite::asset('resources/img/logo.png') }}" alt="Laravel Logo">
     <span>Some links: </span>
     <a href="{{ route('comics.index') }}">index</a>
-    <a href="{{ route('homepage') }}">Home</a>
+    <a href="{{ route('welcome') }}">Homepage</a>
 </header>

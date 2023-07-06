@@ -47,6 +47,7 @@ class ComicController extends Controller
         $newComic->type = $validatedData['type'];
         $newComic->artists = $validatedData['artists'];
         $newComic->writers = $validatedData['writers'];
+        dd($newComic);
         $newComic->save();
     
         return redirect()->route('comics.show',$newComic->id)->with('success', 'Comic saved successfully!');
@@ -108,4 +109,5 @@ class ComicController extends Controller
     
         return redirect()->route('comics.index')->with('success', 'Fumetto eliminato con successo.');
     }
+ 
 }

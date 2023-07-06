@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <form action="{{ route('comics.store') }}" method="POST">
     @csrf
     <label for="title">Title:</label>
@@ -30,3 +33,4 @@
 
     <button type="submit">Save <a href="{{ route('comics.index') }}"></a></button>
 </form>
+@endsection

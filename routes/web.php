@@ -17,7 +17,7 @@ Route::get('/', function () {
     $links = config('store.someLinks');
     $comics = config('comics');
     return view('welcome', compact('links', 'comics') );
-});
+})->name('welcome');
 
 Route::get('/otherpage', function () {
     $links = config('store.someLinks');
@@ -25,6 +25,3 @@ Route::get('/otherpage', function () {
 });
 Route::resource('comics', ComicController::class);
 
-Route::get('/', function () {
-    return view('layouts.app');
-})->name('homepage');
