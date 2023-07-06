@@ -35,7 +35,24 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->all();
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumb' => 'required|url',
+            'price' => 'required|numeric',
+            'series' => 'required|string|max:255',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:255',
+            'artists' => 'required|string|max:255',
+            'writers' => 'required|string|max:255',
+        ], [
+            'required' => 'Il campo :attribute è obbligatorio.',
+            'string' => 'Il campo :attribute deve essere una stringa.',
+            'max' => 'Il campo :attribute non può superare :max caratteri.',
+            'url' => 'Il campo :attribute deve essere un URL valido.',
+            'numeric' => 'Il campo :attribute deve essere un numero.',
+            'date' => 'Il campo :attribute deve essere una data valida.',
+        ]);
     
         $newComic = new Comics();
         $newComic->title = $validatedData['title'];
@@ -85,15 +102,36 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comics $comic)
 {
-    $comic->title = $request->input('title');
-    $comic->description = $request->input('description');
-    $comic->thumb = $request->input('thumb');
-    $comic->price = $request->input('price');
-    $comic->series = $request->input('series');
-    $comic->sale_date = $request->input('sale_date');
-    $comic->type = $request->input('type');
+    
+    $validatedData = $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'thumb' => 'required|url',
+        'price' => 'required|numeric',
+        'series' => 'required|string|max:255',
+        'sale_date' => 'required|date',
+        'type' => 'required|string|max:255',
+        'artists' => 'required|string|max:255',
+        'writers' => 'required|string|max:255',
+    ], [
+        'required' => 'Il campo :attribute è obbligatorio.',
+        'string' => 'Il campo :attribute deve essere una stringa.',
+        'max' => 'Il campo :attribute non può superare :max caratteri.',
+        'url' => 'Il campo :attribute deve essere un URL valido.',
+        'numeric' => 'Il campo :attribute deve essere un numero.',
+        'date' => 'Il campo :attribute deve essere una data valida.',
+    ]);
 
-    $comic->save();
+   $comic->title = $validatedData['title'];
+        $comic->description = $validatedData['description'];
+        $comic->thumb = $validatedData['thumb'];
+        $comic->price = $validatedData['price'];
+        $comic->series = $validatedData['series'];
+        $comic->sale_date = $validatedData['sale_date'];
+        $comic->type = $validatedData['type'];
+
+        $comic->save();
+        
     return redirect()->route('comics.show', $comic->id);
 }
 

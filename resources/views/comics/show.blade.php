@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('page-title', 'Comic')
 @section('content')
+{{-- Metodo da rivedere --}}
+<script>
+     function confirmDelete() {
+    return confirm('Sei sicuro di voler eliminare questo elemento?');
+}
+</script>
 <h1>Comic</h1>
-<div class="row g-4">
-    <div class="col">
-        
-    </div>
-</div>
 <table class="table table-striped table-bordered">
     <thead  class="thead-dark">
         <tr>
@@ -33,7 +34,7 @@
             <td> <form action="{{ route('comics.destroy', $comic) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <input class="btn btn-danger" type="submit" value="Delete">
+                <button type="submit" class="btn btn-danger" onclick="confirmDelete();">Delete</button>
             </form></td> 
             <td><button class="btn btn-warning"><a class="text-white" href="{{ route('comics.edit', $comic->id)}}">Edit</a></button></td>
         </tr>
