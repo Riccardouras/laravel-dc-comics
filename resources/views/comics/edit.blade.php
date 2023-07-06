@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('page-title', 'Edit')
 @section('content')
 <h1>Modifica fumetto</h1>
 

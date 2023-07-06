@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('page-title', 'Comic')
 @section('content')
 <h1>Comic</h1>
 <div class="row g-4">
@@ -35,7 +35,7 @@
                 @method('DELETE')
                 <input class="btn btn-danger" type="submit" value="Delete">
             </form></td> 
-            <td><button class="btn btn-warning"><a href="{{ route('comics.edit', $comic->id)}}">Edit</a></button></td>
+            <td><button class="btn btn-warning"><a class="text-white" href="{{ route('comics.edit', $comic->id)}}">Edit</a></button></td>
         </tr>
     </tbody>
 </table>

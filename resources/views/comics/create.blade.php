@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('page-title', 'Create your comic')
 @section('content')
 <form action="{{ route('comics.store') }}" method="POST">
     @csrf
