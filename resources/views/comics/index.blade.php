@@ -1,27 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Comics</h1>
+<h1>Comics:</h1>
 
-<a href="{{ route('comics.create') }}">Create a New Comic</a>
-    @foreach($comics as $comic)
-    <ul>
-        <li>
-            <a href="{{route("comics.show", $comic->id)}}">{{$comic->title}}</a> <button id="deleteButton" onclick="confirmDelete()">Delete</button>
-        </li>
-    </ul>
-    @endforeach
-<table>
-    <thead>
+
+   
+<table class="table table-striped table-bordered">
+    <thead  class="thead-dark">
         <tr>
             <th>Title</th>
             <th>Description</th>
+            <th>Thumbnail</th>
+            <th>Price</th>
+            <th>Series</th>
+            <th>Sale date</th>
+            <th>Type</th>
         </tr>
     </thead>
     <tbody>
         @foreach($comics as $comic)
         <tr>
-            <td>{{ $comic->title }}</td>
+            <td><a href="{{route("comics.show", $comic->id)}}">{{$comic->title}}</a></td>
             <td>{{ $comic->description }}</td>
             <td> <img src={{"$comic->thumb"}} alt={{"$comic->title"}}></td>
             <td>{{ $comic->price }}</td>
